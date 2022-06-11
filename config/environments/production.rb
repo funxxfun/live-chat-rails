@@ -102,4 +102,10 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # ActionCableを本番環境で使用
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "wss://live-chat-rails-f.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://live-chat-rails-f.herokuapp.com', 'http://live-chat-rails-f.herokuapp.com']
+
 end
